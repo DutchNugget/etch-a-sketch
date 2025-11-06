@@ -4,8 +4,25 @@ const squareContainer = document.createElement("div");
 squareContainer.classList.add("squareContainer")
 body.appendChild(squareContainer);
 
+const numberOfSquares  = document.getElementById("numbers");
+const submit = document.getElementById("submit");
+submit.addEventListener("click", createSquareDiv)
 
-function createSquareDiv (num) {
+
+function createSquareDiv (event) {
+    event.preventDefault();
+
+    // clear old square divs
+    while (squareContainer.firstChild) {
+        squareContainer.removeChild(squareContainer.firstChild);
+    }
+    // get number input
+    let num = numberOfSquares.value
+    if (num > 100) {
+        num = 100
+    }
+
+    console.log(num)
     //total squares variable declared for function
     // size declared for deciding width 
     const totalSquares = num * num
@@ -19,11 +36,15 @@ function createSquareDiv (num) {
         square.style.width = size + "%";
         square.style.height = size + "%";
 
+        square.addEventListener("mouseover", changeColor)
+
         squareContainer.appendChild(square);
+
     }
-   
-    
     
 }
 
-createSquareDiv(20);
+
+function changeColor (event) {
+    event.target.style.backgroundColor = "red";
+}

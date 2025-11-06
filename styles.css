@@ -1,4 +1,11 @@
+.body {
+  display:flex;
+  align-items: center;
+  align-content: center;
 
+
+
+}
 .squareContainer {
     display: flex;
     flex-wrap: wrap;
@@ -13,10 +20,7 @@
 
 .grid {
     box-sizing: border-box;
-    border: 1px solid black;
+    
     margin: 0px;
 }
 
-.grid:hover {
-  background-color: #ff5252;
-}
