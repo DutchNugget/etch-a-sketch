@@ -46,9 +46,23 @@ function createSquareDiv (event) {
 
 
 function changeColor (event) {
+
+    const square = event.target;
+    let opacity  = parseFloat(square.dataset.opacity) || 0.2;
+
+    if (!square.dataset.color) {
     let r = Math.floor(Math.random() * 256); 
     let g = Math.floor(Math.random() * 256); 
     let b = Math.floor(Math.random() * 256);
      
-    event.target.style.backgroundColor = `rgb(${r},${g},${b})`;
+    square.dataset.color = `${r},${g},${b}`;
+    }
+
+    if (opacity < 1) {
+        opacity += 0.1;
+        square.dataset.opacity = opacity;
+        square.style.backgroundColor = `rgba(${square.dataset.color}, ${opacity})`;
+    }
+
+
 }
