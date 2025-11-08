@@ -46,5 +46,9 @@ function createSquareDiv (event) {
 
 
 function changeColor (event) {
-    event.target.style.backgroundColor = "red";
+    let r = Math.floor(Math.random() * 256); 
+    let g = Math.floor(Math.random() * 256); 
+    let b = Math.floor(Math.random() * 256);
+     
+    event.target.style.backgroundColor = `rgb(${r},${g},${b})`;
 }
